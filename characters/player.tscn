@@ -1,0 +1,107 @@
+[gd_scene load_steps=8 format=3 uid="uid://lpjjwryghfit"]
+
+[ext_resource type="Shader" path="res://characters/shaders/postProcess.gdshader" id="1_26h5o"]
+[ext_resource type="Texture2D" uid="uid://bky3o1vkh5maa" path="res://characters/textures/blood1.png" id="2_5swdv"]
+
+[sub_resource type="GDScript" id="GDScript_47cso"]
+script/source = "extends CharacterBody3D
+var SPEED = 5.0
+const JUMP_VELOCITY = 4.5
+@onready var playerCamera := $PlayerCamera
+@onready var sensivity: float = SGlobal.configValues[SGlobal.SENSIVITY] if SGlobal.config[SGlobal.SENSIVITY] else SGlobal.setSensivity(.2)
+@onready var switch_ligths_allow := false
+@onready var open_door_allow := false
+@onready var postProcessMode := false
+@onready var isDead := false 
+@onready var loadingScene = preload(\"res://logic/ui/LoaderScene.tscn\")
+# Get the gravity from the project settings to be synced with RigidBody nodes.
+var gravity = ProjectSettings.get_setting(\"physics/3d/default_gravity\")
+
+func _ready():
+	Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+	if SGlobal.currentLevel > 0:
+		await get_tree().create_timer(.8).timeout
+		Sound.get_node(\"doorSlam\").play()
+func _input(event):
+	if not isDead:
+		if event is InputEventMouseMotion:
+			Input.mouse_mode = Input.MOUSE_MODE_CAPTURED
+			rotate_y(deg_to_rad(-event.relative.x*sensivity))
+			playerCamera.rotate_x(deg_to_rad(-event.relative.y*sensivity))
+		if event.is_action(\"mainMenu\"):
+			get_tree().change_scene_to_file(\"res://logic/ui/MainMenu.tscn\")
+
+func _physics_process(delta):
+	# Add the gravity.
+	if not isDead:
+		if not is_on_floor():
+			velocity.y -= gravity * delta
+		# Handle jump.
+		if Input.is_action_just_pressed(\"ui_accept\") and is_on_floor():
+			velocity.y = JUMP_VELOCITY
+		if Input.is_action_just_pressed(\"actionKey\"):
+			if switch_ligths_allow:
+				postProcessMode = !postProcessMode
+				for i in get_tree().get_nodes_in_group(\"ligth\"):
+					i.set_visible(!i.visible)
+					Sound.get_node(\"menu_click_sound\").play()
+			if open_door_allow:
+				SGlobal.finalTime = Time.get_unix_time_from_system() - GlobalScene.initTime
+				Sound.get_node(\"doorSoundOpen\").play()
+				SGlobal.currentLevel += 1
+				get_tree().change_scene_to_packed(loadingScene)
+		if Input.is_action_just_pressed(\"Sprint\"):
+			SPEED = 8.
+		if Input.is_action_just_released(\"Sprint\"):
+			SPEED = 5.
+		# Get the input direction and handle the movement/deceleration.
+		# As good practice, you should replace UI actions with custom gameplay actions.
+		var input_dir = Input.get_vector(\"ui_left\", \"ui_right\", \"ui_up\", \"ui_down\")
+		var direction = (transform.basis * Vector3(input_dir.x, 0, input_dir.y)).normalized()
+		if direction:
+			velocity.x = direction.x * SPEED
+			velocity.z = direction.z * SPEED
+		else:
+			velocity.x = move_toward(velocity.x, 0, SPEED)
+			velocity.z = move_toward(velocity.z, 0, SPEED)
+
+		move_and_slide()
+"
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_qjthc"]
+render_priority = 0
+shader = ExtResource("1_26h5o")
+shader_parameter/isDead = false
+shader_parameter/bloodSampler = ExtResource("2_5swdv")
+
+[sub_resource type="PlaneMesh" id="PlaneMesh_aoypr"]
+material = SubResource("ShaderMaterial_qjthc")
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_acvn8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_j0mbd"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[node name="Player" type="CharacterBody3D"]
+script = SubResource("GDScript_47cso")
+
+[node name="PlayerCamera" type="Camera3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.5, -0.4)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="PlayerCamera"]
+transform = Transform3D(1, 0, 0, 0, -4.37114e-08, -1, 0, 1, -4.37114e-08, 0, 0, -0.119916)
+extra_cull_margin = 16384.0
+mesh = SubResource("PlaneMesh_aoypr")
+
+[node name="PlayerMesh" type="MeshInstance3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+mesh = SubResource("CapsuleMesh_acvn8")
+
+[node name="PlayerMeshCollider" type="CollisionShape3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+shape = SubResource("ConvexPolygonShape3D_j0mbd")
+
+[node name="SpotLight3D" type="SpotLight3D" parent="."]
+transform = Transform3D(0.982794, 0.163843, -0.0852708, -0.0496536, 0.67903, 0.73243, 0.177905, -0.715594, 0.675482, 0, 3, 2.1)
+spot_range = 7.5698
+spot_angle = 40.5653

@@ -1,0 +1,134 @@
+[gd_scene load_steps=7 format=3 uid="uid://eo634js74agh"]
+
+[ext_resource type="Theme" uid="uid://dmx4yu8blkl8v" path="res://logic/configuration/DefaultTheme.tres" id="1_el1em"]
+[ext_resource type="Script" path="res://logic/ui/Settings.gd" id="1_lfdxa"]
+[ext_resource type="Texture2D" uid="uid://dbdyrani6kx58" path="res://logic/data/textures/duck_color.png" id="2_w2m2k"]
+[ext_resource type="Shader" path="res://logic/ui/backgound.gdshader" id="2_xsrrs"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_otpa3"]
+shader = ExtResource("2_xsrrs")
+shader_parameter/mousePose = Vector2(0, 0)
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_73b51"]
+
+[node name="Settings" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_el1em")
+script = ExtResource("1_lfdxa")
+
+[node name="Panel" type="Panel" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_w2m2k")
+stretch_mode = 1
+
+[node name="backgrnd" type="ColorRect" parent="."]
+material = SubResource("ShaderMaterial_otpa3")
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+custom_minimum_size = Vector2(400, 200)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -100.0
+offset_right = 200.0
+offset_bottom = 100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer2" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+
+[node name="FpsCheckBox" type="CheckBox" parent="VBoxContainer/PanelContainer2" groups=["menu_btn"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Show FPS"
+alignment = 1
+
+[node name="PanelContainer" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_73b51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="MuteVol" type="CheckBox" parent="VBoxContainer/PanelContainer/VBoxContainer" groups=["menu_btn"]]
+layout_mode = 2
+size_flags_horizontal = 4
+text = "Volume"
+alignment = 1
+icon_alignment = 1
+
+[node name="MasterVolumenSlider" type="HSlider" parent="VBoxContainer/PanelContainer/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 1.0
+
+[node name="PanelContainer3" type="PanelContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_styles/panel = SubResource("StyleBoxEmpty_73b51")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="VBoxContainer/PanelContainer3"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+
+[node name="SensBtn" type="Button" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+layout_mode = 2
+theme_override_colors/font_disabled_color = Color(0, 0.737255, 1, 1)
+theme_override_font_sizes/font_size = 16
+disabled = true
+text = "Mouse Sensitivity
+Default 0.2"
+flat = true
+
+[node name="MouseSens" type="HSlider" parent="VBoxContainer/PanelContainer3/VBoxContainer"]
+custom_minimum_size = Vector2(200, 0)
+layout_mode = 2
+max_value = 1.0
+step = 0.001
+value = 0.2
+
+[node name="GoBack" type="Button" parent="VBoxContainer" groups=["menu_btn"]]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "Back
+"
+
+[connection signal="pressed" from="VBoxContainer/PanelContainer2/FpsCheckBox" to="." method="_on_fps_check_box_pressed"]
+[connection signal="toggled" from="VBoxContainer/PanelContainer/VBoxContainer/MuteVol" to="." method="_on_mute_vol_toggled"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer/VBoxContainer/MasterVolumenSlider" to="." method="_on_master_volumen_slider_value_changed"]
+[connection signal="value_changed" from="VBoxContainer/PanelContainer3/VBoxContainer/MouseSens" to="." method="_on_mouse_sens_value_changed"]
+[connection signal="pressed" from="VBoxContainer/GoBack" to="." method="_on_go_back_pressed"]

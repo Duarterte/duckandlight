@@ -1,0 +1,32 @@
+[gd_scene load_steps=7 format=3 uid="uid://b337el1ywsypm"]
+
+[ext_resource type="AudioStream" uid="uid://6lippaalirjq" path="res://logic/ui/sound/click.mp3" id="1_vqyuj"]
+[ext_resource type="AudioStream" uid="uid://dwgwv7rsj3fep" path="res://logic/ui/sound/blipSelect.wav" id="2_gprk1"]
+[ext_resource type="AudioStream" uid="uid://dxtt152gqfarx" path="res://sound/door-open.mp3" id="3_u1frt"]
+[ext_resource type="AudioStream" uid="uid://bcasl11vmcjmo" path="res://sound/hit-swing-sword-small-2-95566.mp3" id="4_pc75b"]
+[ext_resource type="AudioStream" uid="uid://d2e08e7dykbk" path="res://sound/ropeSnap.mp3" id="5_20dic"]
+[ext_resource type="AudioStream" uid="uid://65i4igottdtc" path="res://sound/wood-door-slam-46791.mp3" id="6_3ubjj"]
+
+[node name="Sound" type="Node"]
+
+[node name="menu_click_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_vqyuj")
+volume_db = -4.685
+
+[node name="selection_sound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_gprk1")
+volume_db = -17.767
+
+[node name="doorSoundOpen" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_u1frt")
+volume_db = -3.748
+
+[node name="spikeDead" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_pc75b")
+
+[node name="ropeSnap" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("5_20dic")
+volume_db = -17.801
+
+[node name="doorSlam" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("6_3ubjj")

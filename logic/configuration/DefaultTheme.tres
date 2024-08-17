@@ -1,0 +1,54 @@
+[gd_resource type="Theme" load_steps=7 format=3 uid="uid://dmx4yu8blkl8v"]
+
+[ext_resource type="FontFile" uid="uid://cyuwmyuxajwfr" path="res://logic/data/textures/Exquisite-3K88.ttf" id="1_60qno"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_exkla"]
+bg_color = Color(0.27451, 0.482353, 0.552941, 1)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.00392157, 0.0392157, 0.239216, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_irbgq"]
+bg_color = Color(0.00392157, 0.0392157, 0.239216, 1)
+border_width_left = 3
+border_width_top = 2
+border_width_right = 3
+border_width_bottom = 5
+border_color = Color(0.27451, 0.482353, 0.552941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2hu8y"]
+content_margin_left = 10.0
+content_margin_top = 4.0
+content_margin_right = 10.0
+content_margin_bottom = 4.0
+bg_color = Color(0.27451, 0.482353, 0.552941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_7hvv2"]
+content_margin_left = 10.0
+content_margin_top = 10.0
+content_margin_right = 10.0
+content_margin_bottom = 10.0
+bg_color = Color(0.27451, 0.482353, 0.552941, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_mag5s"]
+bg_color = Color(0.0156863, 0.00784314, 0.0117647, 1)
+
+[resource]
+Button/colors/font_color = Color(0.999999, 0.990735, 0.589614, 1)
+Button/styles/hover = SubResource("StyleBoxFlat_exkla")
+Button/styles/normal = SubResource("StyleBoxFlat_irbgq")
+CheckBox/styles/disabled = null
+CheckBox/styles/focus = null
+CheckBox/styles/hover = null
+CheckBox/styles/hover_pressed = null
+CheckBox/styles/normal = SubResource("StyleBoxFlat_2hu8y")
+CheckBox/styles/pressed = SubResource("StyleBoxFlat_7hvv2")
+Label/colors/font_color = Color(0.999999, 0.990735, 0.589614, 1)
+Label/colors/font_outline_color = Color(1, 0.211765, 0, 1)
+Label/constants/outline_size = 10
+Label/font_sizes/font_size = 64
+Label/fonts/font = ExtResource("1_60qno")
+Panel/styles/panel = SubResource("StyleBoxFlat_mag5s")
+VBoxContainer/constants/separation = 12

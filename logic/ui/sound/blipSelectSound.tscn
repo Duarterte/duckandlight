@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b0s38txb5e74o"]
+
+[ext_resource type="AudioStream" uid="uid://dwgwv7rsj3fep" path="res://logic/ui/sound/blipSelect.wav" id="1_f2avx"]
+
+[node name="BlipSelectSound" type="AudioStreamPlayer"]
+stream = ExtResource("1_f2avx")

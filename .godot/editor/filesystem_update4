@@ -1,0 +1,10 @@
+res://logic/ui/Settings.tscn
+res://logic/configuration/DefaultTheme.tres
+res://logic/ui/backgound.gdshader
+res://miscellaneous/vfx/god_rays.gdshader
+res://characters/shaders/postProcess.gdshader
+res://assets/mesheses/wall.mesh
+res://assets/mesheses/floor_one.mesh
+res://world/Level_One.tscn
+res://characters/player.tscn
+res://world/Levle_For.tscn

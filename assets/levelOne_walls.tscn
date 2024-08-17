@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://barclx3m1dand"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdgq70gb7ibd" path="res://assets/mesheses/wall.mesh" id="1_gj3ik"]
+[ext_resource type="Script" path="res://world/MultiMeshInstance3D.gd" id="2_bxi85"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_d5jv3"]
+transform_format = 1
+instance_count = 14
+visible_instance_count = 14
+mesh = ExtResource("1_gj3ik")
+buffer = PackedFloat32Array(0, 0, 5.76433e-24, 0, 0, 0, 0, 0, 4.2039e-45, 2.8026e-45, 9.18369e-41, 0, 3.36312e-44, 0, 0, 0, 0, 0, 0, 0, 3.62129e-17, 0, 2.37638e-13, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8.40779e-45, 0, 1.4013e-45, 0, 0, 0, 1.50479e-14, 0, 0, 0, 0, 0, 2.20923e-13, 0, 0, 0, 3.17089e-17, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2.8026e-45, 0, 0, 0, 0, 0, 0, 0, 7.64411e-20, 0, 3.73557e-16, 0, 3.14075e-16, 0, 1.84981e-14, 0, 1.91688e-14, 0, 0, 0, 0, 0, 2.8026e-45, 0, 0, 0, 1.4013e-45, 0, 0, 0, 8.50108e-17, 0, 3.12696e-16, 0, 0, 0, 1.4013e-45, 2.8026e-45, 0, 0, 3.36312e-44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 8.40779e-45, 0, 1.4013e-45, 0, 0, 0, 7.65073e-18, 0, 0, 0, 0, 0, 5.78901e-24, 0, 0, 0, 3.758e-16, 0, 0, 0, 0, 0, 0, 0, 0, 0, 2.8026e-45, 0, 3.62129e-17, 0, 0, 0, 0, 0, 2.42203e-17, 0, 0, 0, 2.41777e-17, 0, 2.19384e-13, 0)
+
+[node name="MultiMeshInstance3D" type="MultiMeshInstance3D"]
+multimesh = SubResource("MultiMesh_d5jv3")
+script = ExtResource("2_bxi85")

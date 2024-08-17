@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://d3xtitqr376kx"]
+
+[ext_resource type="ArrayMesh" uid="uid://cw2i20mas8ny2" path="res://assets/mesheses/floor_one.mesh" id="1_6nlvg"]
+[ext_resource type="Script" path="res://assets/MultiMeshInstance3Dfloors.gd" id="2_8ynxt"]
+
+[sub_resource type="MultiMesh" id="MultiMesh_1lvxg"]
+transform_format = 1
+instance_count = 9
+visible_instance_count = 9
+mesh = ExtResource("1_6nlvg")
+buffer = PackedFloat32Array(6.1068e-20, 0, 8.1869e-20, 0, 1.89739e-14, 0, 1.28125e-18, 0, 5.79107e-24, 0, 1.5915e-13, 0, 5.71636e-24, 0, 1.80653e-13, 0, 1.02589e-11, 0, 2.71973e-13, 0, 1.09034e-16, 0, 2.87879e-17, 0, 5.76433e-24, 0, 8.37579e-19, 0, 8.37725e-19, 0, 2.25039e-13, 0, 5.26868e-13, 0, 6.61687e-12, 0, 3.58967e-16, 0, 8.16371e-20, 0, 2.86451e-13, 0, 5.7765e-24, 0, 5.77924e-24, 0, 2.03014e-14, 0, 5.84675e-24, 0, 5.84949e-24, 0, 1.49421e-14, 0, 3.19916e-20, 0, 8.33475e-19, 0, 2.77294e-19, 0, 5.74045e-24, 0, 5.34183e-17, 0, 2.39404e-14, 0, 1.99173e-14, 0, 1.25031e-17, 0, 4.89535e-13, 0, 1.20443e-17, 0, 5.10295e-13, 0, 4.09325e-24, 0, 6.38021e-20, 0, 8.085e-19, 0, 5.57717e-17, 0, 6.34593e-20, 0, 1.1317e-17, 0, 6.33134e-20, 0, 7.65269e-20, 0, 7.64411e-20, 0, 7.64593e-20, 0, 3.7859e-17, 0, 2.09557e-13, 0, 3.80344e-18, 0, 5.41009e-18, 0, 1.67076e-14, 0, 6.72928e-12, 0)
+
+[node name="foors" type="MultiMeshInstance3D"]
+multimesh = SubResource("MultiMesh_1lvxg")
+script = ExtResource("2_8ynxt")

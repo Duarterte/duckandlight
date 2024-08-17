@@ -1,0 +1,13 @@
+[gd_scene load_steps=4 format=3 uid="uid://cp7shqvmmr2uh"]
+
+[ext_resource type="PackedScene" uid="uid://cvfl3w6i7pf2i" path="res://helper.tscn" id="1_xr40e"]
+[ext_resource type="PackedScene" uid="uid://barclx3m1dand" path="res://assets/levelOne_walls.tscn" id="2_v2vo4"]
+[ext_resource type="PackedScene" uid="uid://d3xtitqr376kx" path="res://assets/LevelOne_foors.tscn" id="3_txubh"]
+
+[node name="LevelTwo" type="Node3D"]
+
+[node name="helper" parent="." instance=ExtResource("1_xr40e")]
+
+[node name="walls" parent="." instance=ExtResource("2_v2vo4")]
+
+[node name="foors" parent="." instance=ExtResource("3_txubh")]

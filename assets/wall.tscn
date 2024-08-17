@@ -1,0 +1,56 @@
+[gd_scene load_steps=7 format=3 uid="uid://dwbciexww3pjc"]
+
+[ext_resource type="Texture2D" uid="uid://dl2if8ydxilhf" path="res://assets/textures/wall_wall.png" id="1_28lfl"]
+[ext_resource type="Texture2D" uid="uid://dtqm8d5k1p34j" path="res://assets/textures/wall_b2.png" id="2_va0xe"]
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_h3wid"]
+resource_name = "Material.001"
+cull_mode = 2
+albedo_texture = ExtResource("1_28lfl")
+normal_enabled = true
+normal_texture = ExtResource("2_va0xe")
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_jsba3"]
+_surfaces = [{
+"aabb": AABB(-2.5, -0.1, 2.5, 5, 3.45, 0.10001),
+"format": 34896613377,
+"index_count": 36,
+"index_data": PackedByteArray(0, 0, 3, 0, 1, 0, 0, 0, 2, 0, 3, 0, 6, 0, 5, 0, 7, 0, 6, 0, 4, 0, 5, 0, 2, 0, 7, 0, 3, 0, 2, 0, 6, 0, 7, 0, 4, 0, 1, 0, 5, 0, 4, 0, 0, 0, 1, 0, 2, 0, 4, 0, 6, 0, 2, 0, 0, 0, 4, 0, 7, 0, 1, 0, 3, 0, 7, 0, 5, 0, 1, 0),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(0, 0, 0, 0),
+"vertex_count": 8,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 248, 255, 0, 0, 0, 0, 255, 255, 248, 255, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 255, 255, 0, 0, 248, 255, 0, 0, 255, 255, 255, 255, 248, 255, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0)
+}]
+blend_shape_mode = 0
+
+[sub_resource type="ArrayMesh" id="ArrayMesh_o7n23"]
+resource_name = "wall_Cube_001"
+_surfaces = [{
+"aabb": AABB(-2.5, -0.1, 2.5, 5, 3.45, 0.10001),
+"attribute_data": PackedByteArray(85, 254, 87, 154, 214, 143, 255, 159, 133, 175, 255, 255, 85, 254, 240, 243, 227, 238, 255, 159, 52, 207, 255, 255, 187, 126, 122, 132, 214, 143, 255, 191, 133, 175, 255, 223, 187, 126, 132, 219, 227, 238, 255, 191, 52, 207, 255, 223, 154, 127, 87, 154, 133, 175, 255, 159, 133, 175, 255, 159, 154, 127, 240, 243, 52, 207, 255, 159, 52, 207, 255, 159, 255, 255, 122, 132, 133, 175, 255, 191, 133, 175, 255, 191, 255, 255, 132, 219, 52, 207, 255, 191, 52, 207, 255, 191),
+"format": 34896613399,
+"index_count": 36,
+"index_data": PackedByteArray(2, 0, 11, 0, 5, 0, 2, 0, 8, 0, 11, 0, 20, 0, 17, 0, 23, 0, 20, 0, 14, 0, 17, 0, 6, 0, 21, 0, 9, 0, 6, 0, 18, 0, 21, 0, 12, 0, 3, 0, 15, 0, 12, 0, 0, 0, 3, 0, 7, 0, 13, 0, 19, 0, 7, 0, 1, 0, 13, 0, 22, 0, 4, 0, 10, 0, 22, 0, 16, 0, 4, 0),
+"material": SubResource("StandardMaterial3D_h3wid"),
+"name": "Material.001",
+"primitive": 3,
+"uv_scale": Vector4(2.02, 2, 0, 0),
+"vertex_count": 24,
+"vertex_data": PackedByteArray(0, 0, 0, 0, 248, 255, 255, 255, 0, 0, 0, 0, 248, 255, 255, 191, 0, 0, 0, 0, 248, 255, 84, 213, 0, 0, 255, 255, 248, 255, 255, 255, 0, 0, 255, 255, 248, 255, 255, 255, 0, 0, 255, 255, 248, 255, 84, 213, 0, 0, 0, 0, 0, 0, 255, 255, 0, 0, 0, 0, 0, 0, 255, 191, 0, 0, 0, 0, 0, 0, 84, 213, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 255, 255, 0, 0, 84, 213, 255, 255, 0, 0, 248, 255, 255, 255, 255, 255, 0, 0, 248, 255, 255, 191, 255, 255, 0, 0, 248, 255, 84, 213, 255, 255, 255, 255, 248, 255, 255, 255, 255, 255, 255, 255, 248, 255, 255, 255, 255, 255, 255, 255, 248, 255, 84, 213, 255, 255, 0, 0, 0, 0, 255, 255, 255, 255, 0, 0, 0, 0, 255, 191, 255, 255, 0, 0, 0, 0, 84, 213, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 255, 255, 255, 255, 255, 255, 0, 0, 84, 213, 255, 127, 255, 127, 0, 0, 255, 127, 84, 213, 84, 213, 255, 127, 255, 127, 255, 127, 255, 191, 84, 213, 84, 213, 255, 255, 255, 127, 0, 0, 255, 127, 84, 213, 84, 213, 255, 255, 255, 127, 255, 127, 255, 191, 84, 213, 84, 213, 255, 127, 255, 127, 0, 0, 255, 127, 170, 42, 170, 42, 255, 127, 255, 127, 255, 127, 255, 191, 170, 42, 170, 42, 255, 255, 255, 127, 0, 0, 255, 127, 170, 42, 170, 42, 255, 255, 255, 127, 255, 127, 255, 191, 170, 42, 170, 42)
+}]
+blend_shape_mode = 0
+shadow_mesh = SubResource("ArrayMesh_jsba3")
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_olygg"]
+points = PackedVector3Array(2.5, 3.35, 1.5, 2.5, -0.1, 1.5, -2.5, 3.35, 1.5, -2.5, -0.1, 1.5)
+
+[node name="wall" type="MeshInstance3D"]
+mesh = SubResource("ArrayMesh_o7n23")
+skeleton = NodePath("")
+
+[node name="_StaticBody3D_20010" type="StaticBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="_StaticBody3D_20010"]
+shape = SubResource("ConvexPolygonShape3D_olygg")

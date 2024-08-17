@@ -1,0 +1,12 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfcmfa8kxgy6o"]
+
+[ext_resource type="AudioStream" uid="uid://dwgwv7rsj3fep" path="res://logic/ui/sound/blipSelect.wav" id="1_me837"]
+[ext_resource type="AudioStream" uid="uid://6lippaalirjq" path="res://logic/ui/sound/click.mp3" id="2_cxsp1"]
+
+[node name="MenuSound" type="Node"]
+
+[node name="blip" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("1_me837")
+
+[node name="click" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("2_cxsp1")

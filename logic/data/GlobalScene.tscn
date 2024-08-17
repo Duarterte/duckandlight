@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://drqe7j286pt23"]
+
+[ext_resource type="Texture2D" uid="uid://cmrclxa7pq7ib" path="res://logic/data/textures/pressE.png" id="1_56gb8"]
+[ext_resource type="Script" path="res://logic/data/GlobalScene.gd" id="1_vex3n"]
+[ext_resource type="FontFile" uid="uid://cyuwmyuxajwfr" path="res://logic/data/textures/Exquisite-3K88.ttf" id="2_vkwye"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w4hkh"]
+atlas = ExtResource("1_56gb8")
+region = Rect2(0, 0, 128, 128)
+
+[node name="GlobalScene" type="CanvasLayer"]
+script = ExtResource("1_vex3n")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = -1
+anchor_right = 1.0
+anchor_bottom = 0.071
+offset_bottom = -0.00800323
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_right = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="FPS" type="Label" parent="MarginContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.999999, 0.990735, 0.589614, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 2
+theme_override_fonts/font = ExtResource("2_vkwye")
+theme_override_font_sizes/font_size = 32
+
+[node name="cronos" type="Label" parent="MarginContainer"]
+visible = false
+layout_mode = 2
+size_flags_horizontal = 4
+theme_override_colors/font_color = Color(0.999999, 0.990735, 0.589614, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/shadow_outline_size = 2
+theme_override_fonts/font = ExtResource("2_vkwye")
+theme_override_font_sizes/font_size = 32
+horizontal_alignment = 1
+
+[node name="TextureRect" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -64.0
+offset_top = -128.0
+offset_right = 64.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = SubResource("AtlasTexture_w4hkh")

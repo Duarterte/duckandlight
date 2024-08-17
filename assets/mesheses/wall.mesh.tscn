@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://cfmm5qt2ld32"]
+
+[ext_resource type="ArrayMesh" uid="uid://bdgq70gb7ibd" path="res://assets/mesheses/wall.mesh" id="1_bnk40"]
+
+[node name="wall" type="MeshInstance3D"]
+mesh = ExtResource("1_bnk40")
+skeleton = NodePath("")
